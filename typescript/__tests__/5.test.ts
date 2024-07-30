@@ -1,39 +1,34 @@
 import { longestPalindrome } from "../5/longestPalindrome";
 
-const testData = [
-  { input: "babcd", output: "bab" },
-  { input: "cbbd", output: "bb" },
-  { input: "abcc", output: "cc" },
-];
+describe("Testing for 5. Longest Palindrome", () => {
+  it("Longest palindrome is returned with a 5 length string", () => {
+    const input = "babcd";
 
-test("Longest palindrome is returned with a 5 length string", () => {
-  const input = "babcd";
+    const result = longestPalindrome(input);
 
-  const result = longestPalindrome(input);
+    expect(result).toEqual("bab");
+  });
 
-  expect(result).toEqual("bab");
-});
+  it("Longest palindrome is with an even length palindrome", () => {
+    const input = "cbbd";
 
-test("Longest palindrome is with an even length palindrome", () => {
-  const input = "cbbd";
+    const result = longestPalindrome(input);
+    expect(result).toEqual("bb");
+  });
 
-  const result = longestPalindrome(input);
+  it("returns the full string if it is a full palindrome", () => {
+    const input = "racecar";
 
-  expect(result).toEqual("bb");
-});
+    const result = longestPalindrome(input);
 
-test("returns the full string if it is a full palindrome", () => {
-  const input = "racecar";
+    expect(result).toEqual("racecar");
+  });
 
-  const result = longestPalindrome(input);
+  it("returns an empty string if given an empty string", () => {
+    const input = "";
 
-  expect(result).toEqual("racecar");
-});
+    const result = longestPalindrome(input);
 
-test("returns an empty string if given an empty string", () => {
-  const input = "";
-
-  const result = longestPalindrome(input);
-
-  expect(result).toEqual("");
+    expect(result).toEqual("");
+  });
 });
